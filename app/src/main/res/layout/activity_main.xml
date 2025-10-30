@@ -12,6 +12,20 @@
         android:padding="16dp"
         android:gravity="center">
 
+        <!-- Clear Location Data Button -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/goToPrimeNumberButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Go to Prime Number Calculator"
+            android:layout_margin="8dp" />
+
+        </RelativeLayout>
+
         <!-- Get Location Button -->
         <RelativeLayout
             android:layout_width="match_parent"
@@ -26,6 +40,7 @@
                 android:padding="12dp"
                 android:backgroundTint="@color/purple_500" />
 
+
             <ProgressBar
                 android:id="@+id/progressBar"
                 android:layout_width="24dp"
@@ -34,6 +49,22 @@
                 android:layout_marginStart="16dp"
                 android:visibility="gone"
                 android:indeterminateTint="@android:color/white" />
+
+        </RelativeLayout>
+
+        <!-- Clear Location Data Button -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/clearLocationDataButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Clear Location Data"
+                android:textSize="16sp"
+                android:padding="12dp"
+                android:backgroundTint="@color/purple_500" />
 
         </RelativeLayout>
 

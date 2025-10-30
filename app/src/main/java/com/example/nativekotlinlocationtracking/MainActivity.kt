@@ -29,6 +29,8 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var fusedLocationClient: FusedLocationProviderClient
     private lateinit var getLocationButton: Button
+    private lateinit var clearLocationDataButton: Button
+    private lateinit var goToPrimeNumberButton: Button
     private lateinit var progressBar: ProgressBar
     private lateinit var errorContainer: LinearLayout
     private lateinit var errorText: TextView
@@ -52,6 +54,8 @@ class MainActivity : AppCompatActivity() {
 
         // Initialize views
         getLocationButton = findViewById(R.id.getLocationButton)
+        clearLocationDataButton = findViewById(R.id.clearLocationDataButton)
+        goToPrimeNumberButton = findViewById(R.id.goToPrimeNumberButton)
         progressBar = findViewById(R.id.progressBar)
         errorContainer = findViewById(R.id.errorContainer)
         errorText = findViewById(R.id.errorText)
@@ -70,8 +74,17 @@ class MainActivity : AppCompatActivity() {
             getCurrentLocation()
         }
 
+        clearLocationDataButton.setOnClickListener {
+            clearLocationData()
+        }
+
         openSettingsButton.setOnClickListener {
             openAppSettings()
+        }
+
+        goToPrimeNumberButton.setOnClickListener {
+            val intent = Intent(this, PrimeNumberActivity::class.java)
+            startActivity(intent)
         }
 
         // Check permissions on start
@@ -173,7 +186,7 @@ class MainActivity : AppCompatActivity() {
 
                 // Stop timing
                 val elapsedTime = System.currentTimeMillis() - startTime
-                timeTakenText.text = elapsedTime.toString()
+                timeTakenText.text = "${elapsedTime} ms"
                 //println("Time taken to get location: $elapsedTime")
 
                 if (location != null) {
@@ -201,6 +214,20 @@ class MainActivity : AppCompatActivity() {
         speedText.text = "${String.format("%.2f", location.speed)} m/s"
         bearingText.text = "${String.format("%.2f", location.bearing)}°"
 
+    }
+
+    private fun clearLocationData() {
+        fusedLocationClient.flushLocations()
+
+        locationContainer.visibility = View.GONE
+
+        latitudeText.text = "--"
+        longitudeText.text = "--"
+        accuracyText.text = "--"
+        altitudeText.text = "--"
+        speedText.text = "--"
+        bearingText.text = "--"
+        timeTakenText.text = "--"
     }
 
     private fun setLoadingState(isLoading: Boolean) {
