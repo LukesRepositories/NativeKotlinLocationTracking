@@ -13,7 +13,6 @@ class PrimeNumberActivity : AppCompatActivity() {
     private lateinit var calculateButton: Button
     private lateinit var primeNumberText: TextView
     private lateinit var timeTakenText: TextView
-    private lateinit var progressBar: ProgressBar
     private var job: Job? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,7 +23,6 @@ class PrimeNumberActivity : AppCompatActivity() {
         calculateButton = findViewById(R.id.calculateButton)
         primeNumberText = findViewById(R.id.primeNumberText)
         timeTakenText = findViewById(R.id.timeTakenText)
-        progressBar = findViewById(R.id.progressBar)
 
         // Set click listener
         calculateButton.setOnClickListener {
@@ -86,13 +84,11 @@ class PrimeNumberActivity : AppCompatActivity() {
         if (isLoading) {
             calculateButton.text = "Calculating..."
             calculateButton.isEnabled = false
-            progressBar.visibility = View.VISIBLE
             primeNumberText.text = ""
             timeTakenText.text = ""
         } else {
             calculateButton.text = "Get prime number"
             calculateButton.isEnabled = true
-            progressBar.visibility = View.GONE
         }
     }
 
