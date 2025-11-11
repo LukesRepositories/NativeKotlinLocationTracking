@@ -6,11 +6,20 @@
     android:gravity="center"
     android:padding="16dp">
 
-    <Button
-        android:id="@+id/calculateButton"
+    <TextView
+        android:id="@+id/descriptionText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Get prime number"
+        android:layout_marginTop="24dp"
+        android:textSize="16sp"
+        android:textAlignment="center"
+        android:text="" />
+
+    <Button
+        android:id="@+id/getDataButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Get REST API data"
         android:textSize="16sp"
         android:paddingHorizontal="32dp"
         android:paddingVertical="12dp"
@@ -18,7 +27,7 @@
 
 
     <TextView
-        android:id="@+id/primeNumberText"
+        android:id="@+id/responseText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"

@@ -10,7 +10,6 @@ import android.provider.Settings
 import android.view.View
 import android.widget.Button
 import android.widget.LinearLayout
-import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -20,10 +19,6 @@ import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import com.google.android.gms.location.Priority
 import com.google.android.gms.tasks.CancellationTokenSource
-import java.sql.Time
-import java.text.SimpleDateFormat
-import java.util.Date
-import java.util.Locale
 
 class LocationActivity : AppCompatActivity() {
 
@@ -51,7 +46,7 @@ class LocationActivity : AppCompatActivity() {
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
 
         // Initialize views
-        getLocationButton = findViewById(R.id.getLocationButton)
+        getLocationButton = findViewById(R.id.goToLocationPageButton)
         clearLocationDataButton = findViewById(R.id.clearLocationDataButton)
         errorContainer = findViewById(R.id.errorContainer)
         errorText = findViewById(R.id.errorText)
