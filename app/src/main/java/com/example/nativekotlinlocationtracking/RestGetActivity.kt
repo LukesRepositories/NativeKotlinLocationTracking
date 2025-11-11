@@ -30,7 +30,7 @@ class RestGetActivity : AppCompatActivity() {
         descriptionText = findViewById(R.id.descriptionText)
 
         // Set description text
-        descriptionText.text = "Sends a REST GET to https://timeapi.io/api/TimeZone/zone?timeZone=Europe/London"
+        descriptionText.text = "Sends a REST GET to https://dummyjson.com/products/1"
 
         // Set click listener
         getDataButton.setOnClickListener {
@@ -64,11 +64,11 @@ class RestGetActivity : AppCompatActivity() {
 
                 if (response.isSuccessful && responseBody != null) {
                     val jsonObject = JSONObject(responseBody)
-                    val currentLocalTime = jsonObject.getString("title")
+                    val responseString = jsonObject.getString("title")
 
                     // Update UI on main thread
                     withContext(Dispatchers.Main) {
-                        responseText.text = "returned GET: $currentLocalTime"
+                        responseText.text = "returned GET: $responseString"
                         timeTakenText.text = "Time taken: ${formatElapsedTime(elapsedTime)}"
                         setLoadingState(false)
                     }
@@ -103,7 +103,7 @@ class RestGetActivity : AppCompatActivity() {
             responseText.text = ""
             timeTakenText.text = ""
         } else {
-            getDataButton.text = "Get lorem ipsum"
+            getDataButton.text = "Get REST API Data"
             getDataButton.isEnabled = true
         }
     }

@@ -19,7 +19,7 @@
         android:id="@+id/getDataButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Get REST API data"
+        android:text="Get REST API Data"
         android:textSize="16sp"
         android:paddingHorizontal="32dp"
         android:paddingVertical="12dp"

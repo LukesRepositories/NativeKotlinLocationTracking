@@ -29,22 +29,6 @@
 
         </RelativeLayout>
 
-        <!-- Clear Location Data Button -->
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <Button
-                android:id="@+id/clearLocationDataButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Clear Location Data"
-                android:textSize="16sp"
-                android:padding="12dp"
-                android:backgroundTint="@color/purple_500" />
-
-        </RelativeLayout>
-
         <!-- Error Container -->
         <LinearLayout
             android:id="@+id/errorContainer"

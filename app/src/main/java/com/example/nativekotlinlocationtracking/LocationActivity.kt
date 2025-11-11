@@ -24,7 +24,6 @@ class LocationActivity : AppCompatActivity() {
 
     private lateinit var fusedLocationClient: FusedLocationProviderClient
     private lateinit var getLocationButton: Button
-    private lateinit var clearLocationDataButton: Button
     private lateinit var errorContainer: LinearLayout
     private lateinit var errorText: TextView
     private lateinit var openSettingsButton: Button
@@ -47,7 +46,6 @@ class LocationActivity : AppCompatActivity() {
 
         // Initialize views
         getLocationButton = findViewById(R.id.goToLocationPageButton)
-        clearLocationDataButton = findViewById(R.id.clearLocationDataButton)
         errorContainer = findViewById(R.id.errorContainer)
         errorText = findViewById(R.id.errorText)
         openSettingsButton = findViewById(R.id.openSettingsButton)
@@ -65,9 +63,6 @@ class LocationActivity : AppCompatActivity() {
             getCurrentLocation()
         }
 
-        clearLocationDataButton.setOnClickListener {
-            clearLocationData()
-        }
 
         openSettingsButton.setOnClickListener {
             openAppSettings()
@@ -200,20 +195,6 @@ class LocationActivity : AppCompatActivity() {
         speedText.text = "${String.format("%.2f", location.speed)} m/s"
         bearingText.text = "${String.format("%.2f", location.bearing)}°"
 
-    }
-
-    private fun clearLocationData() {
-        fusedLocationClient.flushLocations()
-
-        locationContainer.visibility = View.GONE
-
-        latitudeText.text = "--"
-        longitudeText.text = "--"
-        accuracyText.text = "--"
-        altitudeText.text = "--"
-        speedText.text = "--"
-        bearingText.text = "--"
-        timeTakenText.text = "--"
     }
 
     private fun setLoadingState(isLoading: Boolean) {
