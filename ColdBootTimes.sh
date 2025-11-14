@@ -2,15 +2,15 @@
 
 PACKAGE_NAME="com.example.nativekotlinlocationtracking"  # Replace with your package name
 ACTIVITY_NAME=".MainActivity"        # Replace with your main activity
-NUM_TESTS=5                          # Number of test runs
+NUM_TESTS=10                          # Number of test runs
 
-echo "Testing cold boot startup times for $PACKAGE_NAME"
-echo "=========================================="
+echo "Testing cold boot startup times for $PACKAGE_NAME"  >> startup_log.txt
+echo "=========================================="  >> startup_log.txt
 
 total_time=0
 
 for i in $(seq 1 $NUM_TESTS); do
-    echo "Test run $i of $NUM_TESTS..."
+    echo "Test run $i of $NUM_TESTS..." >> startup_log.txt
     
     # Force stop the app to ensure cold boot
     adb shell am force-stop $PACKAGE_NAME
@@ -27,12 +27,12 @@ for i in $(seq 1 $NUM_TESTS); do
     # Extract TotalTime (time until first frame drawn)
     startup_time=$(echo "$result" | grep "TotalTime" | awk '{print $2}')
     
-    echo "  Startup time: ${startup_time}ms"
+    echo "  Startup time: ${startup_time}ms" >> startup_log.txt
     total_time=$((total_time + startup_time))
     
     sleep 3
 done
 
 average=$((total_time / NUM_TESTS))
-echo "=========================================="
-echo "Average cold boot time: ${average}ms"
+echo "==========================================" >> startup_log.txt
+echo "Average cold boot time: ${average}ms" >> startup_log.txt

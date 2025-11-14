@@ -190,8 +190,8 @@ class LocationActivity : AppCompatActivity() {
 
         latitudeText.text = location.latitude.toString()
         longitudeText.text = location.longitude.toString()
-        accuracyText.text = "${String.format("%.2f", location.accuracy)} meters"
-        altitudeText.text = "${String.format("%.2f", location.altitude)} meters"
+        accuracyText.text = "${String.format("%.2f", location.accuracy)} metres"
+        altitudeText.text = "${String.format("%.2f", location.altitude)} metres"
         speedText.text = "${String.format("%.2f", location.speed)} m/s"
         bearingText.text = "${String.format("%.2f", location.bearing)}°"
 
