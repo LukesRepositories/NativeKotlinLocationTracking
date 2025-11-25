@@ -41,10 +41,10 @@ class LocationActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_location)
 
-        // Initialize location client
+        // Initialise location client
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
 
-        // Initialize views
+        // Initialise views
         getLocationButton = findViewById(R.id.goToLocationPageButton)
         errorContainer = findViewById(R.id.errorContainer)
         errorText = findViewById(R.id.errorText)
@@ -62,7 +62,6 @@ class LocationActivity : AppCompatActivity() {
         getLocationButton.setOnClickListener {
             getCurrentLocation()
         }
-
 
         openSettingsButton.setOnClickListener {
             openAppSettings()
