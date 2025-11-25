@@ -14,7 +14,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // Initialize views
+        // Initialise views
         getLocationButton = findViewById(R.id.goToLocationPageButton)
         goToRestGetPagButton = findViewById(R.id.goToRestGetPageButton)
 
