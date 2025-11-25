@@ -168,10 +168,9 @@ class LocationActivity : AppCompatActivity() {
                 // Stop timing
                 val elapsedTime = System.currentTimeMillis() - startTime
                 timeTakenText.text = "${elapsedTime} ms"
-                //println("Time taken to get location: $elapsedTime")
 
                 if (location != null) {
-                    displayLocation(location)
+                    displayLocation(location) // displayLocation Function below this function
                 } else {
                     showError("Unable to get location. Please try again.", false)
                 }
@@ -179,9 +178,9 @@ class LocationActivity : AppCompatActivity() {
                 setLoadingState(false)
                 showError("Error getting location: ${exception.message}", false)
             }
-        } catch (e: SecurityException) {
+        } catch (e: Exception) {
             setLoadingState(false)
-            showError("Location permission error: ${e.message}", true)
+            showError("Error getting location: ${e.message}", true)
         }
     }
 

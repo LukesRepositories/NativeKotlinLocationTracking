@@ -1,7 +1,7 @@
 #!/bin/bash
 
-PACKAGE_NAME="com.example.nativekotlinlocationtracking"  # Replace with your package name
-ACTIVITY_NAME=".MainActivity"        # Replace with your main activity
+PACKAGE_NAME="com.example.nativekotlinlocationtracking"  # App package name can be altered
+ACTIVITY_NAME=".MainActivity"        # Can also be altered
 NUM_TESTS=10                          # Number of test runs
 
 echo "Testing cold boot startup times for $PACKAGE_NAME"  >> startup_log.txt
@@ -36,3 +36,5 @@ done
 average=$((total_time / NUM_TESTS))
 echo "==========================================" >> startup_log.txt
 echo "Average cold boot time: ${average}ms" >> startup_log.txt
+
+
