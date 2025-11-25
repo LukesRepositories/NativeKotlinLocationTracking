@@ -23,7 +23,7 @@ class RestGetActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_rest_get)
 
-        // Initialize views
+        // Initialise views
         getDataButton = findViewById(R.id.getDataButton)
         responseText = findViewById(R.id.responseText)
         timeTakenText = findViewById(R.id.timeTakenText)
